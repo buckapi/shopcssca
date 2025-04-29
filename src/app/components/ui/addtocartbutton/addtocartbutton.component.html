@@ -1,0 +1,32 @@
+<div class="cart-btn meta-content m-b20 d-flex align-items-end">
+    <div class="product-num">
+        <div class="btn-quantity  d-xl-block">
+            <label class="form-label">Cantidad</label>
+            <div class="btn-quantity light quantity-sm me-3">
+                <button class="btn btn-sm btn-outline-secondary" 
+                        (click)="decrement()"
+                        [disabled]="quantity <= 1">
+                  -
+                </button>
+                <input type="number" 
+                       class="form-control quantity-input" 
+                       [(ngModel)]="quantity" 
+                       min="1" 
+                       [max]="maxQuantity"
+                       (change)="validateQuantity()">
+                <button class="btn btn-sm btn-outline-secondary" 
+                        (click)="increment()"
+                        [disabled]="quantity >= maxQuantity">
+                  +
+                </button>
+              </div>
+        </div>
+        
+        <button class="btn btn-secondary text-uppercase add-to-cart-btn" 
+                (click)="global.addToCart(product, quantity)"
+                [disabled]="!product">
+            <i class="fas fa-shopping-cart me-2"></i>
+            Agregar al carrito
+        </button>
+    </div>
+</div>

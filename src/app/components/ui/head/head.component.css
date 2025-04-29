@@ -1,0 +1,168 @@
+.logo-header img {
+    height: 65px;
+    max-width: 150px;
+    object-fit: contain;
+    -webkit-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+  /* Estilos para el menú móvil */
+.mobile-menu-header {
+    display: none; /* Oculto por defecto */
+  }
+  .mobile-close-btn {
+    display: none;
+  }
+
+  @media (max-width: 991px) {
+    .mobile-close-btn {
+        display: flex;
+      }
+    .mobile-menu-header {
+      display: block; /* Visible solo en móvil */
+      width: 100%;
+    }
+    
+    .header-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: white;
+      z-index: 1050;
+      overflow-y: auto;
+      flex-direction: column;
+    }
+    
+    .navbar-nav {
+      flex-direction: column;
+    }
+    
+    .btn-close-black {
+      font-size: 1.5rem;
+      padding: 0.5rem;
+      display: block; /* Visible solo en móvil */
+    }
+  }
+
+ /* Estilos base (oculto por defecto) */
+.mobile-buttons {
+    display: none;
+    position: fixed;
+    bottom: 70px; /* Ajusta según la altura de tu bottom-nav */
+    right: 15px;
+    z-index: 999;
+  }
+  
+  /* Estilos para el botón del carrito */
+  .mobile-buttons .cart-link .nav-link {
+    background: #002446;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .mobile-buttons .cart-link i {
+    color: white;
+    font-size: 20px;
+  }
+  
+  .mobile-buttons .badge-circle {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff4a76;
+    color: white;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+  
+  /* Mostrar solo en móvil */
+  @media (max-width: 991px) {
+    .mobile-buttons {
+      display: flex;
+    }
+    
+    body {
+      padding-bottom: 120px; /* Ajusta según necesites */
+    }
+  }
+  
+  /* Clases de utilidad para control de visibilidad */
+  .d-lg-none {
+    display: none;
+  }
+  
+  @media (max-width: 991px) {
+    .d-lg-none {
+      display: flex;
+    }
+  }
+
+  .btn-quantity {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .btn-quantity .btn-sm {
+    padding: 0.15rem 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  .btn-quantity .form-control {
+    width: 50px;
+    text-align: center;
+    padding: 0.15rem;
+  }
+  /* Para mejorar la visualización */
+.cart-widget {
+  transition: all 0.3s ease;
+}
+
+.cart-widget:hover {
+  background-color: #f8f9fa;
+}
+
+.dz-close {
+  cursor: pointer;
+  color: #dc3545;
+}
+
+.dz-close:hover {
+  color: #b02a37;
+}
+
+.dz-price {
+  min-width: 180px; /* Para alinear precios */
+}
+
+/* Para móviles */
+@media (max-width: 991px) {
+  .offcanvas-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+  }
+  
+  .offcanvas.show {
+    visibility: visible;
+    transform: translateX(0);
+  }
+}

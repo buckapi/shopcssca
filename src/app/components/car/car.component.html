@@ -1,0 +1,127 @@
+<div class="page-content bg-light">
+    <!--Banner Start-->
+   <!--  <div class="dz-bnr-inr bg-secondary overlay-black-light" style="background-image:url(images/background/bg1.jpg);">
+        <div class="container">
+            <div class="dz-bnr-inr-entry">
+                <h1>Carrito de Compras</h1>
+                <nav aria-label="breadcrumb" class="breadcrumb-row">
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a (click)="global.setRoute('home')" style="cursor: pointer;"> Inicio</a></li>
+                        <li class="breadcrumb-item">Carrito de Compras</li>
+                    </ul>
+                </nav>
+            </div>
+        </div>	
+    </div> -->
+    <!--Banner End-->
+
+    
+    <!-- contact area -->
+    <section class="content-inner shop-account">
+        <!-- Product -->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="table-responsive">
+                        <table class="table check-tbl">
+                            <thead>
+                                <tr>
+                                    <th>Producto</th>
+                                    <th></th>
+                                    <th>Precio</th>
+                                    <th>Cantidad</th>
+                                    <th>Subtotal</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of global.getCartItems()">
+                                    <td class="product-item-img"><img src="{{item.image}}" alt="/"></td>
+                                    <td class="product-item-name">{{item.name}}</td>
+                                    <td class="product-item-price">{{item.price}}</td>
+                                    <td class="product-item-quantity">
+                                        <div class="quantity btn-quantity style-1 me-3">
+                                            <input  type="text" value="1" name="demo_vertical2">
+                                        </div>
+                                    </td>
+                                    <td class="product-item-totle">{{item.price}}</td>
+                                    <td class="product-item-close"><a href="javascript:void(0);"><i class="ti-close"></i></a></td>
+                                </tr>
+                              
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- <div class="row shop-form m-t30">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="input-group mb-0">
+                                    <input name="dzEmail" required="required" type="text" class="form-control" placeholder="Coupon Code">
+                                    <div class="input-group-addon">
+                                        <button name="submit" value="Submit" type="submit" class="btn coupon">
+                                            Apply Coupon
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-end">
+                            <a  class="btn btn-secondary">UPDATE CART</a>
+                        </div>
+                    </div> -->
+                </div>
+                <div class="col-lg-4">
+                    <div class="cart-detail">
+                        <a class="btn btn-outline-secondary w-100 m-b20">Varios metodos de pago</a>
+                        <div class="icon-bx-wraper style-4 m-b15">
+                            <div class="icon-bx">
+                                <i class="flaticon flaticon-delivery-truck"></i>
+                            </div>
+                            <div class="icon-content">
+                                <span class=" font-14">Envio</span>
+                                <h6 class="dz-title">Envio a todo el país</h6>
+                            </div>
+                        </div>
+                        <div class="icon-bx-wraper style-4 m-b30">
+                            <div class="icon-bx">
+                                <i class="flaticon flaticon-fast-delivery-1"></i>
+                            </div>
+                            <div class="icon-content">
+                                <h6 class="dz-title">Devoluciones</h6>
+                                <p>7 Días</p>
+                            </div>
+                        </div>
+                        <div class="icon-bx-wraper style-4 m-b30">
+                            <div class="icon-bx">
+                                <i class="flaticon flaticon-alarm-clock"></i>
+                            </div>
+                            <div class="icon-content">
+                                <h6 class="dz-title">Horario de Trabajo</h6>
+                                <p>De lunes a viernes de 9:00 am a 8:00 pm, Sábados: 9:00 am a 8:00 pm</p>
+                            </div>
+                        </div>
+                        <div class="save-text">
+                            <i class="icon feather icon-check-circle"></i>
+                            <span class="m-l10">Gracias por preferirnos</span>
+                        </div>
+                        <table>
+                            <tbody>
+                                <tr class="total">
+                                    <td>
+                                        <h6 class="mb-0">Total</h6>
+                                    </td>
+                                    <td class="price">
+                                        $USD {{global.getTotalPrice()}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a (click)="global.setRoute('checkout')" class="btn btn-secondary w-100">Procesar Pedido</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Product END -->
+    </section>
+    <!-- contact area End--> 
+
+</div>

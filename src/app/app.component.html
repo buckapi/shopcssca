@@ -1,0 +1,127 @@
+<!-- <div class="page-wraper">
+ -->  <router-outlet></router-outlet>
+
+  <app-head></app-head>
+  <app-home [hidden]="global.activeRoute!='home'"></app-home>
+  <app-dashboard [hidden]="global.activeRoute!='dashboard'"></app-dashboard>
+  <app-product-details [hidden]="global.activeRoute!='product-details'"></app-product-details>
+  <app-shop [hidden]="global.activeRoute!='shop'"></app-shop>
+  <app-contact [hidden]="global.activeRoute!='contact'"></app-contact>  
+  <app-about [hidden]="global.activeRoute!='about'"></app-about>
+  <app-login [hidden]="global.activeRoute!='login'"></app-login>
+  <app-car [hidden]="global.activeRoute!='car'"></app-car>
+  <app-checkout [hidden]="global.activeRoute!='checkout'"></app-checkout>
+  <app-addtocartbutton [hidden]="global.activeRoute!='addtocartbutton'"></app-addtocartbutton>
+  <app-formimport [hidden]="global.activeRoute!='formimport'"></app-formimport>
+  <app-privacypolicies [hidden]="global.activeRoute!='privacypolicies'"></app-privacypolicies>
+  <app-terms [hidden]="global.activeRoute!='terms'"></app-terms>
+  <app-footer></app-footer>
+
+<button class="scroltop" type="button"><i class="fas fa-arrow-up"></i></button>
+<!-- WhatsApp Floating Button -->
+<div class="whatsapp-button">
+  <button class="whatsapp-main-btn" (click)="toggleOptions()">
+    <i class="fab fa-whatsapp whatsapp-icon"></i>
+    Contactar CSS.C.A.
+  </button>
+  <div class="options-container" [class.show-options]="showOptions">
+    <button class="option-btn" (click)="contactNumber('584243519027', 'compra')">
+      <i class="fab fa-whatsapp whatsapp-option-icon"></i>
+      Información de COMPRA
+      <div class="option-number">+58 424 3519027</div>
+    </button>
+    <button class="option-btn" (click)="contactNumber('584243519027', 'mantenimiento')">
+      <i class="fab fa-whatsapp whatsapp-option-icon"></i>
+      Mantenimiento
+      <div class="option-number">+58 424 3519027</div>
+    </button>
+    <button class="option-btn" (click)="contactNumber('17866532161', 'compra')">
+      <i class="fab fa-whatsapp whatsapp-option-icon"></i>
+      Información de Importaciòn
+      <div class="option-number">+1 786 6532161</div>
+    </button>
+    
+  </div>
+</div>
+<!-- Quick Modal Start -->
+<div class="modal quick-view-modal fade" id="exampleModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="true" data-bs-keyboard="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+        <i class="icon feather icon-x"></i>
+      </button>
+      <div class="modal-body">
+        <div class="row g-xl-4 g-3">
+          <div class="col-xl-6 col-md-6">
+            <div class="dz-product-detail mb-0">
+              <div class="swiper-btn-center-lr">
+              
+                <div class="swiper quick-modal-swiper2">
+                  <div class="swiper-wrapper" id="lightgallery">
+                    <div class="swiper-slide" *ngFor="let file of global.previaProducto.files">
+                      <div class="dz-media DZoomImage">
+                        <a class="mfp-link lg-item" href="{{file}}" style="max-height: 500px; width: auto; object-fit: contain; margin: 0 auto;">
+                          <i class="feather icon-maximize dz-maximize top-right"></i>
+                        </a>
+                        <img src="{{file}}" alt="image" class="product-gallery-img" style="max-height: 500px; width: auto; object-fit: contain; margin: 0 auto;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="swiper quick-modal-swiper thumb-swiper-lg thumb-sm swiper-vertical">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide" *ngFor="let file of global.previaProducto.files">
+                      <img src="{{file}}" alt="image" style="min-width: 43px !important; object-fit: fill;">
+                    </div>
+                  </div>
+                </div>
+              </div>	
+            </div>	
+            
+          </div>
+          <div class="col-xl-6 col-md-6">
+            <div class="dz-product-detail style-2 ps-xl-3 ps-0 pt-2 mb-0">
+              <div class="dz-content">
+                <div class="dz-content-footer">
+                  <div class="dz-content-start">
+                    <!-- <span class="badge bg-secondary mb-2">SALE 20% Ds</span> -->
+                    <h4 class="title mb-1"><a>{{global.previaProducto.name}}</a></h4>
+                 
+                  </div>
+                </div>
+                <p class="para-text">
+                  {{global.previaProducto.description}}
+                </p>
+                <div class="meta-content m-b20 d-flex align-items-end">
+                  <div class="me-3">
+                    <span class="form-label">Precio</span>
+                    <span class="price">$USD {{global.previaProducto.price}} <!-- <del>$132.17</del> --></span>
+                  </div>
+                </div>
+                <!-- En tu modal (solo la parte relevante) -->
+                <app-addtocartbutton 
+                [product]="global.previaProducto"
+                [(quantity)]="quantity"
+                (quantityChange)="quantity = $event"
+                (addedToCart)="reloadPage()">
+                </app-addtocartbutton>
+                <div class="cart-btn">
+<!--                   <a (click)="goToProductDetails()" class="btn btn-md btn-outline-secondary btn-icon">
+ -->                    <a (click)="global.setRoute('product-details')" class="btn btn-md btn-outline-secondary btn-icon">
+
+                    Ver mas detalles
+                  </a>
+                </div>
+                <div class="dz-info mb-0">
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- </div> -->
