@@ -6,7 +6,7 @@ import PocketBase from 'pocketbase';
 })
 export class ImageService {
   private pb: PocketBase;
-  private apiUrl = 'https://db.buckapi.lat:8050';
+  private apiUrl = 'https://db.buckapi.lat:8025';
 
   constructor() {
     this.pb = new PocketBase(this.apiUrl);

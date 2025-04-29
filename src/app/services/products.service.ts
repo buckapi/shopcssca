@@ -38,9 +38,9 @@ export class ProductsService {
     private fb: FormBuilder,
     public global: GlobalService
   ) {
-    this.pb = new PocketBase('https://db.buckapi.lat:8050'); // Initialize PocketBase
+    this.pb = new PocketBase('https://db.buckapi.lat:8025'); // Initialize PocketBase
 
-    this.baseUrl = 'https://db.buckapi.lat:8050';
+    this.baseUrl = 'https://db.buckapi.lat:8025';
   }
 
   addProduct(data: Product): Promise<Product> {

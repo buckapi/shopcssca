@@ -44,7 +44,7 @@ interface VideoFile {
 
 export class DashboardComponent {
   private pb: PocketBase;
-  private apiUrl = 'https://db.buckapi.lat:8050';
+  private apiUrl = 'https://db.buckapi.lat:8025';
   Unit = Unit;
 
   product = {

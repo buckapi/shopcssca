@@ -115,7 +115,7 @@ ${formData.comment || 'Ninguna'}`;
 
     // Codificar el mensaje para URL
     const encodedMessage = encodeURIComponent(message);
-    const whatsappNumber = '584127667553'; // Reemplaza con tu número de WhatsApp
+    const whatsappNumber = '584243519027'; // Reemplaza con tu número de WhatsApp
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
     
     // Abrir WhatsApp en una nueva pestaña

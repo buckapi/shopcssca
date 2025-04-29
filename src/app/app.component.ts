@@ -57,7 +57,6 @@ import { HostListener } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  @HostListener('document:click', ['$event'])
   title = 'cssca';
   product: any; // Asegúrate de definir el tipo de tu producto
   quantity: number = 1; // Cantidad por defecto
@@ -179,6 +178,8 @@ export class AppComponent {
       toggleOptions() {
         this.showOptions = !this.showOptions;
       }
+      @HostListener('document:click', ['$event'])
+
     
       onClickOutside(event: Event) {
         const target = event.target as HTMLElement;

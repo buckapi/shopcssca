@@ -19,7 +19,7 @@ export class AuthPocketbaseService {
     public global: GlobalService
    ) 
   { 
-    this.pb = new PocketBase('https://db.buckapi.lat:8050');
+    this.pb = new PocketBase('https://db.buckapi.lat:8025');
   }
  /*  async registerUser(data: any): Promise<any> {
     try {

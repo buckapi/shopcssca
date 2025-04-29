@@ -77,7 +77,7 @@ export class GlobalService {
     this.loadCart();
   }
   public pb: PocketBase;
-  private apiUrl = 'https://db.buckapi.lat:8050';
+  private apiUrl = 'https://db.buckapi.lat:8025';
   public listenToBackButton() {
     window.addEventListener('popstate', (event) => {
       event.preventDefault(); // Evita el comportamiento por defecto

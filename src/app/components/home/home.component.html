@@ -103,7 +103,7 @@
 									<div class="swiper-slide" *ngFor="let categoria of (realtimecategorias.categorias$ | async)">
 										<div class="about-box">	
 											<div class="about-img">
-												<img src="images/shop/product-2/1.png" alt="image">
+												<img src="{{categoria.files[0]}}" alt="image" *ngIf="categoria.files.length > 0" style="width: 50%;">
 											</div>
 											<div class="about-btn"><a class="btn btn-white btn-md" >{{categoria.name}}</a></div>
 										</div>
