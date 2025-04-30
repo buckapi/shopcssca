@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import PocketBase from "pocketbase";
 import Swal from 'sweetalert2';
@@ -43,6 +43,8 @@ interface VideoFile {
 })
 
 export class DashboardComponent {
+  isMobileMenuOpen = false;
+  
   private pb: PocketBase;
   private apiUrl = 'https://db.buckapi.lat:8025';
   Unit = Unit;
@@ -118,6 +120,20 @@ export class DashboardComponent {
       files: [''],
     });
   }
+
+  toggleMobileMenu() {
+    this.isMobileMenuOpen = !this.isMobileMenuOpen;
+    // Bloquear/desbloquear el scroll del body
+    document.body.style.overflow = this.isMobileMenuOpen ? 'hidden' : '';
+  }
+  @HostListener('window:resize', ['$event'])
+onResize(event: any) {
+  if (event.target.innerWidth > 768) {
+    this.isMobileMenuOpen = false;
+    document.body.style.overflow = '';
+  }
+}
+
 
     onImageChange(event: any): void {
       const files = event.target.files;
@@ -554,6 +570,12 @@ export class DashboardComponent {
         this.global.menuSelected = 'edit-product'; // Muestra el formulario de edición
       }
     });
+    this.global.menuSelected = 'dashboard';
+    this.global.setMenuOption('dashboard');
+    // Cerrar el menú al iniciar si es mobile
+  if (window.innerWidth <= 768) {
+    this.isMobileMenuOpen = false;
+  }
   } 
   
   toggleCategorias() {
@@ -609,7 +631,7 @@ export class DashboardComponent {
       });
   
       if (result.isConfirmed) {
-        await this.pb.collection('categorias').delete(id);
+        await this.pb.collection('categories').delete(id);
         Swal.fire(
           '¡Eliminado!',
           'La categoria ha sido eliminada.',
@@ -668,7 +690,7 @@ export class DashboardComponent {
       };
   
       // Guardar categoría
-      await this.pb.collection('categorias').create(categoryData);
+      await this.pb.collection('categories').create(categoryData);
   
       // Cerrar loading y mostrar éxito
       await Swal.fire({
